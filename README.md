@@ -11,9 +11,14 @@ Otherwise, the data can be accessed via the following [link](https://www.kaggle.
 The data should then be unzipped and then renamed to 'facemask' and moved to the datasets folder.
 Run the Jupyter Notebook to see the results.
 
-### Dataset Credits
+## Acknowledgements
+### Dataset
+```
 @misc{make ml,
 title={Mask Dataset},
 url={https://makeml.app/datasets/mask},
 journal={Make ML}
 }
+```
+### YoloV5 Model
+The model I used to train and test this was from [Glenn Jocher's YoloV5](https://github.com/ultralytics/yolov5). 
