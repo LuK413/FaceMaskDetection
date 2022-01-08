@@ -1,0 +1,9 @@
+# Train, validation and tests
+path: ../datasets/face-mask-detection
+train: images/train
+val: images/val
+test: images/test
+
+# Classes
+nc: 3
+names: ['with_mask', 'mask_weared_incorrect', 'without_mask']
