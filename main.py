@@ -24,6 +24,8 @@ st.markdown(
     * Faces that are incorrectly wearing a mask
     * Faces that are not wearing a mask
     
+    **Note**: Uploading an image via your mobile device may not work properly due to EXIF data.
+    
     The code and notebooks for this application can be found [here](https://github.com/LuK413/FaceMaskDetection).
     
     No data is collected.
@@ -35,12 +37,6 @@ image_buffer = st.file_uploader(label='Upload Image', type=['png', 'jpeg', 'jpg'
 
 if image_buffer:
     image = Image.open(image_buffer)
-
-    # remove exif
-    data = list(image.getdata())
-    image = Image.new(image.mode, image.size)
-    image.putdata(data)
-
     img_array = np.array(image)
     start = timer()
     result = model(image)
