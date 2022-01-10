@@ -25,6 +25,8 @@ st.markdown(
     * Faces that are not wearing a mask
     
     The code and notebooks for this application can be found [here](https://github.com/LuK413/FaceMaskDetection).
+    
+    No data is collected.
     """
 )
 
@@ -45,9 +47,11 @@ if image_buffer:
             'with_mask': (0, 255, 0),
             'mask_weared_incorrect': (255, 255, 0)
         }
-        height, width, _ = img_array.shape
+        height, width, channels = img_array.shape
+        if channels == 4:
+            img_array = cv2.cvtColor(img_array, cv2.COLOR_RGBA2RGB)
         scale = 0.1
-        font_scale = min(height, width) / (100 / scale)
+        font_scale = min(height, width) / (75 / scale)
         for _, row in pandas_res.iterrows():
             start_point = (int(row['xmin']), int(row['ymin']))
             end_point = (int(row['xmax']), int(row['ymax']))
