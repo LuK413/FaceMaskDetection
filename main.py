@@ -12,7 +12,7 @@ st.set_page_config(
 
 st.title('Face Detection App')
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', force_reload=True)
 model.eval()
 
 st.markdown(
