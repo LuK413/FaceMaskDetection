@@ -35,6 +35,12 @@ image_buffer = st.file_uploader(label='Upload Image', type=['png', 'jpeg', 'jpg'
 
 if image_buffer:
     image = Image.open(image_buffer)
+
+    # remove exif
+    data = list(image.getdata())
+    image = Image.new(image.mode, image.size)
+    image.putdata(data)
+
     img_array = np.array(image)
     start = timer()
     result = model(image)
