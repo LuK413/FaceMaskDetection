@@ -31,6 +31,7 @@ Run the Jupyter Notebook to see the results.
 ![test](test.png)
 ## Acknowledgements
 ### Dataset
+The dataset was taken from [Kaggle](https://www.kaggle.com/andrewmvd/face-mask-detection).
 ```
 @misc{make ml,
 title={Mask Dataset},
