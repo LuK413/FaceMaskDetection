@@ -22,11 +22,11 @@ Run the Jupyter Notebook to see the results.
 ### Training Metrics
 ![Metrics](metrics.png)
 ### Validation Metrics
-![confusion_matrix](yolov5\runs\val\exp3\confusion_matrix.png)
-![F1_curve](yolov5\runs\val\exp3\F1_curve.png)
-![P_curve](yolov5\runs\val\exp3\P_curve.png)
-![PR_curve](yolov5\runs\val\exp3\PR_curve.png)
-![R_curve](yolov5\runs\val\exp3\R_curve.png)
+![confusion_matrix](yolov5/runs/val/exp3/confusion_matrix.png)
+![F1_curve](yolov5/runs/val/exp3/F1_curve.png)
+![P_curve](yolov5/runs/val/exp3/P_curve.png)
+![PR_curve](yolov5/runs/val/exp3/PR_curve.png)
+![R_curve](yolov5/runs/val/exp3/R_curve.png)
 ### Inference
 ![test](test.png)
 ## Acknowledgements
