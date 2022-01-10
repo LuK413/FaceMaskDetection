@@ -20,9 +20,9 @@ st.markdown(
     This app was made by training a YoloV5 model from [ultralytics/YoloV5](https://github.com/ultralytics/yolov5). 
     The dataset used to train this model was found on [Kaggle](https://www.kaggle.com/andrewmvd/face-mask-detection).
     To run this application, upload an image below and the model will output an image with bounding boxes on:
-    * Faces that are correctly wearing a mask
-    * Faces that are incorrectly wearing a mask
-    * Faces that are not wearing a mask
+    * Faces that are correctly wearing a mask (green)
+    * Faces that are incorrectly wearing a mask (yellow)
+    * Faces that are not wearing a mask (red)
     
     **Note**: Uploading an image via your mobile device may not work properly due to EXIF data.
     
