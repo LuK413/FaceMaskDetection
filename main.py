@@ -10,7 +10,7 @@ st.set_page_config(
     page_title='Face Mask Detection'
 )
 
-st.title('Face Detection App')
+st.title('Face Mask Detection App')
 
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', force_reload=True)
 model.eval()
