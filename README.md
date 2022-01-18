@@ -19,8 +19,6 @@ the data to that folder.
 Run the Jupyter Notebook to see the results.
 
 ## Results
-### Training Metrics
-![Metrics](metrics.png)
 ### Validation Metrics
 ![confusion_matrix](confusion_matrix.png)
 ![F1_curve](F1_curve.png)
