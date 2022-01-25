@@ -28,6 +28,11 @@ names = {
 
 
 def parse_xml(filename):
+    """
+    Parses a Pascal VOC annotation format
+    :param filename: filename of the annotation file
+    :return: bounding boxes, image dimensions and image name
+    """
     dirname = os.path.abspath('')
     absolute_path = os.path.join(dirname, filename)
     tree = ET.parse(absolute_path)
@@ -52,6 +57,11 @@ def parse_xml(filename):
 
 
 def parse_yolo(filename):
+    """
+    Parses a YOLO format annotation file and
+    :param filename: name of the file containing the YOLO annotations
+    :return: bounding boxes
+    """
     dirname = os.path.abspath('')
     absolute_path = os.path.join(dirname, filename)
     with open(filename) as f:
@@ -74,6 +84,10 @@ def parse_yolo(filename):
 
 
 def view_annotations(filename):
+    """
+    Displays an image and its annotations
+    :param filename: name of the image file
+    """
     dirname = os.path.abspath('')
     absolute_path = os.path.join(dirname, filename)
     bgr_img = cv2.imread(absolute_path)
@@ -100,6 +114,10 @@ def view_annotations(filename):
 
 
 def display_img(filename):
+    """
+    Displays an image
+    :param filename: filename of image
+    """
     img = cv2.imread(filename)
     rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     plt.figure(figsize=(12, 12))
@@ -107,6 +125,11 @@ def display_img(filename):
 
 
 def convert_to_yolov5_format(bndbox):
+    """
+    Converts Pascal VOC bounding boxes to a YOLO format
+    :param bndbox: a bounding box array where [xmin, ymin, xmax, ymax, name]
+    :return: name, x_center, y_center, normalized_bbox_width, normalized_bbox_height
+    """
     xmin, ymin, xmax, ymax, name = bndbox
     x_center = ((xmin + xmax) / 2) / IMG_WIDTH
     y_center = ((ymin + ymax) / 2) / IMG_HEIGHT
@@ -115,7 +138,12 @@ def convert_to_yolov5_format(bndbox):
     return name, x_center, y_center, normalized_width, normalized_height
 
 
-def move_files(lof, dest):
+def copy_files(lof, dest):
+    """
+    Copies a list of files into a destination folder
+    :param lof: list of filenames
+    :param dest: destination folder
+    """
     try:
         for file in lof:
             # resize first, then copy
@@ -125,6 +153,11 @@ def move_files(lof, dest):
 
 
 def plot_results(x, y):
+    """
+    Creates subplots of x on y
+    :param x: list of x (epochs) values to plot (independent variable)
+    :param y: list of y (metric) values to plot (dependent variable)
+    """
     fig = make_subplots(rows=7, cols=2, vertical_spacing=0.075, subplot_titles=tuple(y.columns))
     for index, col in enumerate(y):
         row_num = index // 2 + 1
@@ -140,6 +173,12 @@ def plot_results(x, y):
 
 
 def plot_loss(x, y, loss_type):
+    """
+    Plots the training and validation loss of a specific loss type
+    :param x: list of x (epochs) values to plot (independent variable)
+    :param y: list of y (loss) values to plot (dependent variable)
+    :param loss_type: a string specifying the loss type
+    """
     fig = go.Figure()
     fig.add_trace(
         go.Scatter(x=x, y=y['train/'+loss_type], name='train/'+loss_type)
